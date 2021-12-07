@@ -83,7 +83,7 @@ var humour = null;
 
 ```
 ### 1.1.5. Undefined
-Ce type sera attribué lorsqu'une variable est déclarée sans valeur.
+Ce type est attribué lorsqu'une variable est déclarée sans valeur.
 
 ```JS
 // Undefined
@@ -93,13 +93,47 @@ var niveau;
 ## 1.2. Déclarer une variable complexe
 
 ### 1.2.1. Object
-Un type Object permettra de stocker plusieurs valeurs dans une même variable. La variable se déclare avec avec les accolades et une ou plusieurs paires "key/value" séparées par une virgule.
+
+#### Creer un objet
+Un type Object permettra de stocker plusieurs valeurs dans une même variable. La variable se déclare avec avec les accolades et une ou plusieurs paires "clé : valeur" séparées par une virgule.
 
 ```JS
 var personne = {
-  nom : 'Chautemps',
-  prenom: 'Alex,
+  nom : "Chautemps",
+  prenom: "Alex",
   age: 28,
   estVieux: false
 }
 ```
+
+Nous pouvons également mettre une fonction comme valeur à une clé. Dans ce cas, la clé sera nommée "méthode"
+
+```JS
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28,
+  estVieux: false,
+  parler: function(){
+    console.log("Bonjour à tous")
+  }
+}
+```
+#### Utiliser les valeurs de l'objet
+Pour utiliser les valeurs stockées dans un objet, vous avez 2 notations disponibles. Notez bien que les 2 sont importantes à apprendre.
+
+```JS
+
+  console.log(personne.prenom)
+  // Alex
+  
+  console.log(personne["prenom"])
+  // Alex
+  
+  personne.parler()
+  // Bonjour à tous
+
+```
+
+
+
