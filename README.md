@@ -92,12 +92,47 @@ var niveau;
 
 ## 1.2. Déclarer une variable complexe
 
-### 1.2.1. Object
+### 1.2.1. Array
+Un type *Array* permettra de stocker plusieurs valeurs dans une même variable. Ce sera une liste d'élements ordonnés qui peut contenir tout types d'élements (*string*, *number*, *array*, *object*, ...).
+Chaque élement du tableau aura une position numérique dans celui-ci, cette position est nommée : **index**.
+
+#### Créer un tableau
+Pour créer un tableau, nous avons 2 syntaxes : 
+- Notion littérale : **[ ]**
+- Constructeur Array : **new Array()**
+
+```js
+var monTableau = []
+
+var monTableau2 = new Array()
+
+//On peut mettre des valeurs à l'initialisation
+
+var monTableau = ["Xavier", "David", "Pascal"]
+
+var monTableau2 = new Array("Xavier", "David", "Pascal")
+```
+
+#### Accèder aux valeurs d'un tableau
+Pour acceder aux valeurs stockées dans un objet, il faut notez que les **Arrays** sont sur une **base 0**. C'est-à-dire que le premier élément commence à **index 0**
+
+
+
+
+
+
+### 1.2.2. Object
+Tout comme le type *Array*, un type *Object* permettra de stocker plusieurs valeurs dans une même variable. 
+La variable se déclare avec avec les accolades et une ou plusieurs paires "clé : valeur" séparées par une virgule.
 
 #### Creer un objet
-Un type Object permettra de stocker plusieurs valeurs dans une même variable. La variable se déclare avec avec les accolades et une ou plusieurs paires "clé : valeur" séparées par une virgule.
 
 ```JS
+var monObjet = {
+}
+
+var monObjet2 = new Object()
+
 var personne = {
   nom : "Chautemps",
   prenom: "Alex",
@@ -119,21 +154,35 @@ var personne = {
   }
 }
 ```
-#### Utiliser les valeurs de l'objet
-Pour utiliser les valeurs stockées dans un objet, vous avez 2 notations disponibles. Notez bien que les 2 sont importantes à apprendre.
+#### Accéder aux valeurs de l'objet
+Pour acceder aux valeurs stockées dans un objet, vous avez 2 notations disponibles. 
+
+Notez bien que les 2 sont importantes à apprendre. La seconde nous permettra de trouver une valeur via une variable.
 
 ```JS
 
   console.log(personne.prenom)
   // Alex
   
+  personne.parler()
+  // Bonjour à tous
+  
   console.log(personne["prenom"])
   // Alex
   
-  personne.parler()
-  // Bonjour à tous
+  
+  // Trouver la valeur en via une variable
+  var cle = "nom"
+  
+  console.log(personne.cle)
+  // Undefined
+  
+  console.log(personne[cle])
+  // Chautemps
 
 ```
+
+
 
 
 
