@@ -166,7 +166,8 @@ var monTableau = ["Xavier", "David", "Pascal"]
  * 1er paramètre : position du début
  * 2e paramètre : nombre d'élements à supprimer à partir de la position de début
  */
-monTableau.splice(0, 2)
+// Supprime 2 éléments à partir de la position 0
+monTableau.splice(1, 2)
 console.log(monTableau) //["xavier"]
 ```
 
@@ -184,15 +185,17 @@ for(var i = 0; i < monTableau.length; i++) {
 - **forEach**
 ```js
 var monTableau = ["Xavier", "David", "Pascal"]
-monTableau.forEach(function(prof, i){
-  console.log("index :", i)
-  console.log("Prof :", prof)
+monTableau.forEach(function(valeur, index){
+  console.log("index :", index)
+  console.log("Prof :", valeur)
 })
 ```
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
 ####  Autres Méthodes intéressantes pour les tableaux
 
 **Array.map()**
-La méthode ```map()``` va nous permettre de créer un nouveau tableau de même longueur avec des valeurs résultantes d'une fonction
+La méthode ```map()``` va nous permettre de créer un nouveau tableau de même longueur avec des valeurs résultantes d'une fonction. La fonction doit toujours retourner l'élément courant et sa modification.
 ```js
 var monTableau = ["Xavier", "David", "Pascal"]
 var monTableauCool = monTableau.map(function(prof){
@@ -201,18 +204,32 @@ var monTableauCool = monTableau.map(function(prof){
 
 console.log(monTableauCool) //['Xavier est cool', 'David est cool', 'Pascal est cool']
 ```
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 **Array.filter()**
-La méthode ```filter()``` va nous permettre de filtrer un tableau via une fonction
+La méthode ```filter()``` va nous permettre de filtrer un tableau via une condition dans la fonction de callback. La fonction de filtrage doit return ```true```ou ```false```pour garder un élément ou non
 
 ```js
 var monTableau = ["Xavier", "David", "Pascal", "Elodie"]
-var monTableauCool = monTableau.filter(function(prof){
-  return prof.includes("a")
+var monTableauFiltre = monTableau.filter(function(prof){
+  return prof.includes("e")
 })
 
-console.log(monTableauCool) //['Xavier est cool', 'David est cool', 'Pascal est cool']
+console.log(monTableauFilre) //['Xavier', 'Elodie']
 ```
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+**Array.find()**
+La méthode ```find()``` va nous permettre de trouver la première valeur qui correspond à notre condition dans la fonction de callback. Cette fonction doit return ```true```ou ```false```
+
+```js
+var monTableau = ["Xavier", "David", "Pascal", "Elodie"]
+var prenomAvecUnD = monTableau.find(function(prof){
+  return prof.includes("d")
+})
+console.log(prenomAvecUnD) //David
+```
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
 
 ### 1.2.2. Object
