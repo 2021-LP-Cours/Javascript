@@ -117,8 +117,102 @@ var monTableau2 = new Array("Xavier", "David", "Pascal")
 Pour acceder aux valeurs stockées dans un objet, il faut notez que les **Arrays** sont sur une **base 0**. C'est-à-dire que le premier élément commence à **index 0**
 
 
+```js
+  var monTableau = ["Xavier", "David", "Pascal"]
+  console.log(monTableau[0]) //Xavier
+  console.log(monTableau[2]) //Pascal
+  console.log(monTableau[3]) //Undefined
+```
 
+Et si nous avons un tableau dans un tableau.
+```js
+  var monTableau = ["Homer", "Marge", ["Bart", "Lisa", "Maggie"]]
+  console.log(monTableau[0]) //Homer
+  console.log(monTableau[2][0]) //Bart
+  console.log(monTableau[2][2]) //Maggie
+```
+#### Ajouter une valeur dans un tableau
+**Push - Ajouter une valeur à la fin**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+monTableau.push("Elodie")
+console.log(monTableau) //["Xavier", "David", "Pascal", "Elodie"]
+```
+**Unshift - Ajouter une valeur au début**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+monTableau.unshift("Elodie")
+console.log(monTableau) //["Elodie", "Xavier", "David", "Pascal"]
+```
 
+#### Supprimer une valeur dans un tableau
+**pop - Supprimer une valeur à la fin**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+monTableau.pop()
+console.log(monTableau) //["Xavier", "David"]
+```
+**shift - Supprimer une valeur au début**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+monTableau.shift()
+console.log(monTableau) //["David", "Pascal"]
+```
+
+**splice - Supprimer une/des valeur(s) en partiulier**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+/**
+ * 1er paramètre : position du début
+ * 2e paramètre : nombre d'élements à supprimer à partir de la position de début
+ */
+monTableau.splice(0, 2)
+console.log(monTableau) //["xavier"]
+```
+
+####  Boucler dans un tableau
+Les boucles vont nous permettre d'accéder aux valeurs d'un tableau, une par une, quelque soit la taille de celui-ci.
+Vous avez 2 possibilités pour le faire :
+- **for**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+for(var i = 0; i < monTableau.length; i++) {
+  console.log("index :", i)
+  console.log("Prof :", monTableau[i])
+}
+```
+- **forEach**
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+monTableau.forEach(function(prof, i){
+  console.log("index :", i)
+  console.log("Prof :", prof)
+})
+```
+####  Autres Méthodes intéressantes pour les tableaux
+
+**Array.map()**
+La méthode ```map()``` va nous permettre de créer un nouveau tableau de même longueur avec des valeurs résultantes d'une fonction
+```js
+var monTableau = ["Xavier", "David", "Pascal"]
+var monTableauCool = monTableau.map(function(prof){
+  return prof + " est cool"
+})
+
+console.log(monTableauCool) //['Xavier est cool', 'David est cool', 'Pascal est cool']
+```
+
+**Array.filter()**
+La méthode ```filter()``` va nous permettre de filtrer un tableau via une fonction
+
+```js
+var monTableau = ["Xavier", "David", "Pascal", "Elodie"]
+var monTableauCool = monTableau.filter(function(prof){
+  return prof.includes("a")
+})
+
+console.log(monTableauCool) //['Xavier est cool', 'David est cool', 'Pascal est cool']
+```
 
 
 ### 1.2.2. Object
