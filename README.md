@@ -1,4 +1,15 @@
 # Javascript
+**Sommaire**
+- [1. Les types de variables](#1-les-types-de-variables)
+  - [1.1. Les variables primitives](#11-déclarer-et-utiliser-une-variable-primitive)
+    - [1.1.1. String](#111-string)
+    - [1.1.2. Number](#112-number)
+    - [1.1.3. Boolean](#113-boolean)
+    - [1.1.4. Null](#114-null)
+    - [1.1.4. Undefined](#115-undefined)
+  - [1.2. Les variables complexes](#12-déclarer-et-utiliser-une-variable-complexe)
+    - [1.2.1. Array](#121-array)
+    - [1.2.2. Object](#122-object)
 
 # 1. Les types de variables 
 
@@ -90,7 +101,7 @@ Ce type est attribué lorsqu'une variable est déclarée sans valeur.
 var niveau;
 ```
 
-## 1.2. Déclarer une variable complexe
+## 1.2. Déclarer et utiliser une variable complexe
 
 ### 1.2.1. Array
 Un type *Array* permettra de stocker plusieurs valeurs dans une même variable. Ce sera une liste d'élements ordonnés qui peut contenir tout types d'élements (*string*, *number*, *array*, *object*, ...).
