@@ -226,7 +226,7 @@ var monTableauFiltre = monTableau.filter(function(prof){
   return prof.includes("e")
 })
 
-console.log(monTableauFilre) //['Xavier', 'Elodie']
+console.log(monTableauFiltre) //['Xavier', 'Elodie']
 ```
 https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
