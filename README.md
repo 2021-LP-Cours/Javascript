@@ -8,6 +8,7 @@
   - [1.5. Undefined](#15-undefined)
   - [1.6. Array](#16-array)
   - [1.7. Object](#17-object)
+- [2. Les fonctions](#2-functions)
 
 # 1. Les types de variables 
 
@@ -210,7 +211,7 @@ monTableau.forEach(function(valeur, index){
 ```
 https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
-###  Autres Méthodes intéressantes pour les tableaux
+###  Quelques méthodes intéressantes pour les tableaux
 
 **Array.map()**
 La méthode ```map()``` va nous permettre de créer un nouveau tableau de même longueur avec des valeurs résultantes d'une fonction. La fonction doit toujours retourner l'élément courant et sa modification.
@@ -274,19 +275,6 @@ var personne = {
 }
 ```
 
-Nous pouvons également mettre une fonction comme valeur à une clé. Dans ce cas, la clé sera nommée "méthode"
-
-```JS
-var personne = {
-  nom : "Chautemps",
-  prenom: "Alex",
-  age: 28,
-  estVieux: false,
-  parler: function(){
-    console.log("Bonjour à tous")
-  }
-}
-```
 ### Accéder aux valeurs de l'objet
 Pour acceder aux valeurs stockées dans un objet, vous avez 2 notations disponibles. 
 
@@ -315,7 +303,107 @@ Notez bien que les 2 sont importantes à apprendre. La seconde nous permettra de
 
 ```
 
+Nous pouvons également ajouter une ```function``` en tant que valeur pour une clé. Nous ne parlerons plus de *propriété* mais de *méthode"
 
+```JS
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28,
+  estVieux: false,
+  parler: function(message){
+    console.log(message)
+  }
+}
 
+personne.parler("Je parle") // Je parle
 
+```
 
+### Attribuer une nouvelle valeur à une propriété
+Comme pour les variables primitives, il suffit d'attribuer la nouvelle valeur via le signe ```=```
+```JS
+personne.prenom = "Bruno"
+console.log(personne) // {nom: "Chautemps", prenom:"Bruno, ...}
+```
+
+Nous pouvons également ajouter une nouvelle propriété de la même façon
+```JS
+personne.qualite = "Gentil"
+console.log(personne) // {nom: "Chautemps", ..., qualite: "Gentil"}
+```
+
+###  Quelques Méthodes intéressantes pour les Objets
+#### Object.values()
+Cette méthode retourne un tableau contenant toutes les **valeurs** de l'objet
+
+```JS 
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28
+}
+var toutesLesValeursDePersonne = Object.values(personne)
+console.log(toutesLesValeursDePersonne) // ['Chautemps', 'Alex', 28]
+```
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+
+#### Object.keys()
+Cette méthode retourne un tableau contenant toutes les **clés** de l'objet
+
+```JS 
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28
+}
+var toutesLesClesDePersonne = Object.keys(personne)
+console.log(toutesLesClesDePersonne) // ['nom', 'prenom', 'age']
+```
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+### Object.entries()
+Cette méthode retourne un tableau contenant toutes les paires **clés/valeurs** de l'objet dans des "sous-tableaux"
+
+```JS 
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28
+}
+var toutesLesPropsDePersonne = Object.entries(personne)
+console.log(toutesLesPropsDePersonne) // [['nom', 'Chautemps'], ['prenom', 'Alex'], ['age', 28]]
+```
+
+Idéal pour faire une boucle dans un Objet
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+
+### Object.assign()
+Cette méthode combine 2 objets.
+
+```JS 
+var personne = {
+  nom : "Chautemps",
+  prenom: "Alex",
+  age: 28
+}
+var nouvellesInformations = {
+  prenom: "Bruno",
+  qualite : "Gentil"
+}
+
+var nouvellePersonne = Object.assign(personne, nouvellesInformations)
+console.log(toutesLesPropsDePersonne) // {nom: 'Chautemps', prenom: 'Bruno', age: 28, qualite: 'Gentil'}
+```
+
+Notez que les propriétés similaires entre les 2 objets seront remplacé par celles du second objet dans les paramètres de la méthode.
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+> Notez bien que tout ce qu'il y'a dans ce document n'est qu'un aperçu de ce qui est possible de faire. Nous ne pouvons pas tout voir dans une seule et même page. Partez du principe que pour chaque besoin, il y aura une méthode adaptée pour les Objets et Tableaux. 
+**ET mettez moi MDN en page d'accueil de vos navigateurs!**
+
+#2. Les Fonctions
+Les fonctions vont nous permettre de stocker un ensemble d'instructions JavaScript que nous pourrons réutiliser dans notre code.
