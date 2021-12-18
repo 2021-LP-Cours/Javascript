@@ -8,7 +8,7 @@
   - [1.5. Undefined](#15-undefined)
   - [1.6. Array](#16-array)
   - [1.7. Object](#17-object)
-- [2. Les fonctions](#2-functions)
+- [2. Les fonctions](#2-les-fonctions)
 
 # 1. Les types de variables 
 
@@ -405,5 +405,48 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ob
 > Notez bien que tout ce qu'il y'a dans ce document n'est qu'un aperçu de ce qui est possible de faire. Nous ne pouvons pas tout voir dans une seule et même page. Partez du principe que pour chaque besoin, il y aura une méthode adaptée pour les Objets et Tableaux. 
 **ET mettez moi MDN en page d'accueil de vos navigateurs!**
 
-#2. Les Fonctions
+# 2. Les Fonctions
 Les fonctions vont nous permettre de stocker un ensemble d'instructions JavaScript que nous pourrons réutiliser dans notre code.
+
+### Définir et utiliser une fonction
+Pour définir une fonction il suffira d'utiliser le mot clé ```function``` suivi par :
+- le nom de la fonction (qui décrit idealement le rôle de la fonction) ;
+- les **( )** : signe distinctif de la fonction qui peut prendres des variables appelés **paramètres**. Les paramètres fonctionnent comme des variables, nous devrons leur donner un nom et seront séparés par une virgule ;
+- les **{ }** : c'est entre ces 2 accolades que nous mettrons la liste des instructions à executer dans la fonction.
+
+Pour l'utiliser, il suffira de mettre son nom suivi des **()**. Si la fonction possède des **paramètres**, il faudra mettre entre les parenthèses, les valeurs ou **arguments** qui correspondront à chaque paramètre. 
+
+Fonction sans paramètre
+```JS
+function afficherUnMessage(){
+  console.log("Affiche ce message")
+}
+
+afficherUnMessage() // Affiche ce message
+afficherUnMessage() // Affiche ce message
+
+
+```
+
+Fonction avec paramètres
+```JS
+function afficherUnMessage(message){
+  console.log("Message : " + message)
+}
+afficherUnMessage("Bonjour") // Message : Bonjour
+
+function afficherDeuxMessages(message1, message2){
+  console.log("Message 1 : " + message1)
+  console.log("Message 2 : " + message2)
+}
+
+afficherDeuxMessages("Bonjour", "Au Revoir") 
+// Message 1 : Bonjour  
+// Message 2 : Au revoir
+
+afficherDeuxMessages("S'il vous plait", "Merci")
+// Message 1 : S'il vous plait
+// Message 2 : Merci
+
+```
+
