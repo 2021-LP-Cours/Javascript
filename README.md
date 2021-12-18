@@ -449,4 +449,17 @@ afficherDeuxMessages("S'il vous plait", "Merci")
 // Message 2 : Merci
 
 ```
+Un paramètre de fonction peut être une fonction. Celle-ci sera nommée **callback**.
 
+```JS
+function afficherDeuxMessages(message, callback){
+  console.log(message)
+  callback()
+}
+
+afficherDeuxMessages("Bonjour", function(){
+  console.log("Au revoir")
+})
+// Bonjour
+// Au revoir
+```
