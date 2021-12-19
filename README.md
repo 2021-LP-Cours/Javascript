@@ -8,7 +8,8 @@
   - [1.5. Undefined](#15-undefined)
   - [1.6. Array](#16-array)
   - [1.7. Object](#17-object)
-- [2. Les fonctions](#2-les-fonctions)
+- [2. Le scope](#2-le-scope)
+- [3. Les fonctions](#3-les-fonctions)
 
 # 1. Les types de variables 
 
@@ -405,7 +406,25 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ob
 > Notez bien que tout ce qu'il y'a dans ce document n'est qu'un aperçu de ce qui est possible de faire. Nous ne pouvons pas tout voir dans une seule et même page. Partez du principe que pour chaque besoin, il y aura une méthode adaptée pour les Objets et Tableaux. 
 **ET mettez moi MDN en page d'accueil de vos navigateurs!**
 
-# 2. Les Fonctions
+# 2. Le Scope
+Maintenant que nous avons vu tous les types de variables. Il faut prendre en compte que lorsque que nous déclarons une variable, celle-ci aura une portée dans notre code qu'on appelle **scope**.
+Par exemple, si nous déclarons une nouvelle variable dans une fonction, elle sera utilisable uniquement dans cette dite fonction. On peut donc avoir des variables **globales** (utilisables partout dans notre code) et des variables **locales** (utilisables uniquement dans le même scope)
+
+```JS
+var a = "Alex" // Variable globale utilisable partout
+
+function maFonction() {
+  var b = "Romain" // Variable locale à la fonction maFoncion utilisable uniquement dans celle-ci
+  console.log(a) // Alex
+  console.log(b) // Romain
+}
+
+console.log(a) // Alex
+console.log(b) // ERROR
+
+```
+
+# 3. Les Fonctions
 Les fonctions vont nous permettre de stocker un ensemble d'instructions JavaScript que nous pourrons réutiliser dans notre code.
 
 ### Définir et utiliser une fonction
@@ -449,7 +468,7 @@ afficherDeuxMessages("S'il vous plait", "Merci")
 // Message 2 : Merci
 
 ```
-Un paramètre de fonction peut être une fonction. Celle-ci sera nommée **callback**.
+Un paramètre de fonction peut être une fonction. Celui-ci sera nommé **callback**.
 
 ```JS
 function afficherDeuxMessages(message, callback){
