@@ -410,6 +410,9 @@ https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Ob
 Maintenant que nous avons vu tous les types de variables. Il faut prendre en compte que lorsque que nous déclarons une variable, celle-ci aura une portée dans notre code qu'on appelle **scope**.
 Par exemple, si nous déclarons une nouvelle variable dans une fonction, elle sera utilisable uniquement dans cette dite fonction. On peut donc avoir des variables **globales** (utilisables partout dans notre code) et des variables **locales** (utilisables uniquement dans le même scope)
 
+
+> Pour faire très simple, Une paire de ```{}``` = un scope
+
 ```JS
 var a = "Alex" // Variable globale utilisable partout
 
@@ -423,6 +426,72 @@ console.log(a) // Alex
 console.log(b) // ERROR
 
 ```
+
+
+
+## Déclaration des variables dans le scope
+Nous avons vu précédement que pour déclarer une variable il faut utiliser, le mot clé ```var```. Cependant il n'est pas le seul utilisable, JavaScript met également à disposition les mots clés ```let``` et ```const```
+
+## 2.1. var
+Voyons concrètement ce que ```var``` fait réellement maintenant que nous avons la notion de **scope**.
+Il va nous permettre de déclarer une variable en lui affectant (ou non) une valeur. Son scope sera soit global (tout le projet), soit locale (dans une fonction). Cependant vous pouvez avoir quelques problèmes lorsque vous déclarez plusieurs fois une variable du même nom dans un même scope "parent".
+
+```JS
+function varTest() {
+  // Scope de la fonction
+  var a = Alex;
+  if (true) {
+    // Scope de la condition
+    var a = "Romain";
+    console.log(a); // Romain
+  }
+  console.log(a); // Nous attendons "Alex" car mais nous aurons "Romain"
+}
+
+```
+Le scope de 'var' est la fonction varTest(), peu importe les blocks {}. La valeur change même si nous la déclarons dans un scope de condition au sein de la fonction.
+
+> Sincérement, oubliez ```var``` et utilisez les 2 mots clés suivants. Vous serez certains de ne pas avoir de bug lié à des changements de valeur non voulus.
+
+## 2.2. let
+Le mot clé ```let``` reprend les mêmes principes fondamentaux que ```var``` cependant il va ajouter la notion de scope locale à tous les block ```{}```
+
+```JS
+function letTest() {
+  // Scope de la fonction
+  let a = Alex;
+  if (true) {
+    // Scope de la condition
+    let a = "Romain";
+    console.log(a); // Romain
+  }
+  console.log(a); // Alex
+}
+
+```
+Le scope de ma première variable "a" est donc celui de la fonction letTest() et le scope de la seconde devient donc celui de la condition "if (true)"
+
+> A partir de maintenant, remplacez moi tous vos "var" par "let" :)
+
+## 2.3. const
+Le mot clé ```const```reprend exactement les mêmes principes que ```let``` . Le scope de la variable est donc celle du block courant ```{}``` mais celle-ci sera en lecture seule. C'est donc une variable immuable.
+
+```JS
+const MA_CONSTANTE = 100;
+MA_CONSTANTE = 50 // Erreur car on ne peut pas la redéfinir
+console.log(MA_CONSTANTE) // 100
+```
+
+La convention veut que les constantes soient en majuscules.
+
+Notez que pour les variables complexes. Nous pouvons changer leur contenu malgré le fait que ce soit une constante. 
+
+```JS
+const MA_CONSTANTE_ARR = ["Alex"];
+MA_CONSTANTE_ARR.push("Romain")
+console.log(MA_CONSTANTE_ARR) // ["Alex", "Romain"]
+```
+Ceci fonctionne car nous ne changeons pas le tableau qui reste le même, nous changeons le contenu de celui-ci.
 
 # 3. Les Fonctions
 Les fonctions vont nous permettre de stocker un ensemble d'instructions JavaScript que nous pourrons réutiliser dans notre code.
