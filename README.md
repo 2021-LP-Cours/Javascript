@@ -9,6 +9,9 @@
   - [1.6. Array](#16-array)
   - [1.7. Object](#17-object)
 - [2. Le scope](#2-le-scope)
+  - [2.1 var](#21-var)
+  - [2.2 let](#22-let)
+  - [2.3 const](#23-const)
 - [3. Les fonctions](#3-les-fonctions)
 
 # 1. Les types de variables 
