@@ -189,7 +189,7 @@ var monTableau = ["Xavier", "David", "Pascal"]
  * 1er paramètre : position du début
  * 2e paramètre : nombre d'élements à supprimer à partir de la position de début
  */
-// Supprime 2 éléments à partir de la position 0
+// Supprime 2 éléments à partir de la position 1
 monTableau.splice(1, 2)
 console.log(monTableau) //["xavier"]
 ```
@@ -442,13 +442,14 @@ Il va nous permettre de déclarer une variable en lui affectant (ou non) une val
 ```JS
 function varTest() {
   // Scope de la fonction
-  var a = Alex;
+  var a = "Alex";
   if (true) {
     // Scope de la condition
     var a = "Romain";
     console.log(a); // Romain
   }
-  console.log(a); // Nous attendons "Alex" car mais nous aurons "Romain"
+  //Scope de la fonction
+  console.log(a); // Nous attendons "Alex" car nous sommes dans le scope de la fonction mais nous aurons "Romain"
 }
 
 ```
